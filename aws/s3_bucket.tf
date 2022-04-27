@@ -1,5 +1,8 @@
-resource "aws_s3_bucket" "tenable_cs_demo_s3_bucket" {
-  bucket = "tenablecsdemos3bucket"
+resource "aws_s3_bucket" "tcs-demo-s3" {
+  bucket = "tcs-demo-s3-bucket"
+}
+
+resource "aws_s3_bucket_acl" "tcs-demo-s3-acl" {
+  bucket = aws_s3_bucket.tcs-demo-s3.id
   acl    = "public-read"
-  tags   = var.default_tags
 }
